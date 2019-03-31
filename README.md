@@ -1,5 +1,5 @@
 # Encrypt-String
-<h3>encode-string.py - Encode string by xor</h3>
+<h3>encrypt-string.py - Encode string by XOR</h3>
 <br/>
 <img alt="Running encode-string application" src="https://raw.githubusercontent.com/ArdeshirV/Encrypt-String/master/img/enc-string.png"> 
 <br/>
