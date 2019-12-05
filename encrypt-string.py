@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-""" encode-string.py - Encode string by xor """
-# Copyright (c) 2016-2018 ardeshirv@protonmail.com, Licensed under GPLv3+
-import sys
+""" encrypt-string.py - Encode string by XOR """
+# Copyright (c) 2016-2018 ArdeshirV@protonmail.com, Licensed under GPLv3+
+from sys import exit
 import platform
 from tkinter import *
 import tkinter as tk
@@ -126,12 +126,12 @@ class encode_string(object):
 
 
 def print_title():
-    strAppName = "encode-string"
+    strAppName = "encrypt-string"
     strAppYear = "2016-2018"
-    strAppDescription = "Encode string by xor"
+    strAppDescription = "Encode string by XOR"
     strVersion = "1.0"
     strLicense = "GPLv3+"
-    strCopyright = "ardeshirv@protonmail.com"
+    strCopyright = "ArdeshirV@protonmail.com"
     blnColor = False if (platform.system() == 'Windows') else True
     print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
     print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
@@ -153,4 +153,4 @@ def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    exit(main())
