@@ -45,9 +45,9 @@ def Encode(strPassword, stringInput):
 class encode_string(object):
     def __init__(self):
         self.root = tk.Tk()
-        self.root.withdraw()
-        self.root.eval('tk::PlaceWindow %s center' %
-                       self.root.winfo_pathname(self.root.winfo_id()))
+        #self.root.withdraw()
+        #self.root.eval('tk::PlaceWindow %s center' %
+        #               self.root.winfo_pathname(self.root.winfo_id()))
         self.root.title('Encrypt String')
         self.frame = tk.Frame(self.root)
         self.frame2 = tk.Frame(self.root)
