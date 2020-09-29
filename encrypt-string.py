@@ -2,15 +2,14 @@
 """ encrypt-string.py - Encode string by XOR """
 # Copyright (c) 2016-2018 ArdeshirV@protonmail.com, Licensed under GPLv3+
 from sys import exit
-import platform
 from tkinter import *
 import tkinter as tk
 import tkinter.filedialog
 
 
 def main():
-    print_title();
     err_code = 0
+    print_title();
     try:
         encode_string()
     except Exception as exp:
@@ -50,7 +49,7 @@ class encode_string(object):
         #               self.root.winfo_pathname(self.root.winfo_id()))
         self.root.title('Encrypt String')
         self.frame = tk.Frame(self.root)
-        self.frame2 = tk.Frame(self.root)
+        self.frame2 = tk.Frame(self.root, padx=10, pady=10)
         self.frame.pack()
         self.frame2.pack()
         self.initialization()
@@ -132,7 +131,11 @@ def print_title():
     strVersion = "1.0"
     strLicense = "GPLv3+"
     strCopyright = "ArdeshirV@protonmail.com"
-    blnColor = False if (platform.system() == 'Windows') else True
+    from platform import system
+    if system() == 'Windows':
+        from colorama import init
+        init()
+    blnColor = True  # False if (system() == 'Windows') else True
     print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
     print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
 
