@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 """ encrypt-string.py - Encode string by XOR """
 # Copyright (c) 2016-2018 ArdeshirV@protonmail.com, Licensed under GPLv3+
-from sys import exit
+from sys import exit, argv
 from tkinter import *
 import tkinter as tk
 import tkinter.filedialog
 
 
-def main():
+def main(args):
     err_code = 0
     print_title();
     try:
-        encode_string()
+        default_code = 82
+        if len(args) >= 2:
+            default_code = args[1]
+        if len(args) <= 2:
+            encode_string(default_code)
+        else:
+            for s in args[2:]:
+                print(Encode(default_code, s))
     except Exception as exp:
         print('\033[0;31m{0}\033[0m'.format(exp), file=sys.stderr)
         raise exp
@@ -42,7 +49,8 @@ def Encode(strPassword, stringInput):
 
 
 class encode_string(object):
-    def __init__(self):
+    def __init__(self, default_code):
+        self.default_code = default_code
         self.root = tk.Tk()
         #self.root.withdraw()
         #self.root.eval('tk::PlaceWindow %s center' %
@@ -63,7 +71,7 @@ class encode_string(object):
         self.txtCode = tk.Entry(r,  text=self.Code)
         self.txtCode.grid(row=0, column=1, sticky=W)
         self.txtCode.focus_set()
-        self.Code.set('82')
+        self.Code.set(self.default_code)
         self.String = StringVar()
         k_b = tk.Label(r, text='String: ')
         k_b.grid(row=1, column=0, sticky=E)
@@ -156,4 +164,4 @@ def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
 
 
 if __name__ == "__main__":
-    exit(main())
+    exit(main(sys.argv))
