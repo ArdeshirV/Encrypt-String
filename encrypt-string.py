@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """ encrypt-string.py - Encode string by XOR """
 # Copyright (c) 2016-2018 ArdeshirV@protonmail.com, Licensed under GPLv3+
-from sys import exit, argv
-from tkinter import *
+import sys
 import tkinter as tk
 import tkinter.filedialog
 
 
 def main(args):
     err_code = 0
-    print_title();
+    print_title()
     try:
         default_code = 82
         if len(args) >= 2:
@@ -21,8 +20,7 @@ def main(args):
                 print(Encode(default_code, s))
     except Exception as exp:
         print('\033[0;31m{0}\033[0m'.format(exp), file=sys.stderr)
-        raise exp
-        err_code = -1
+        raise exp  # err_code = -1
     return err_code
 
 
@@ -65,24 +63,24 @@ class encode_string(object):
 
     def initialization(self):
         r = self.frame
-        self.Code = StringVar()
+        self.Code = tk.StringVar()
         k_a = tk.Label(r, text='Password: ')
-        k_a.grid(row=0, column=0, sticky=E)
+        k_a.grid(row=0, column=0, sticky=tk.E)
         self.txtCode = tk.Entry(r,  text=self.Code)
-        self.txtCode.grid(row=0, column=1, sticky=W)
+        self.txtCode.grid(row=0, column=1, sticky=tk.W)
         self.txtCode.focus_set()
         self.Code.set(self.default_code)
-        self.String = StringVar()
+        self.String = tk.StringVar()
         k_b = tk.Label(r, text='String: ')
-        k_b.grid(row=1, column=0, sticky=E)
+        k_b.grid(row=1, column=0, sticky=tk.E)
         self.txtString = tk.Entry(r, text=self.String)
         self.txtString.grid(row=1, column=1)
         self.txtString.focus_set()
         b = tk.Button(r, text='Load ...', command=self.Load)
         b.grid(row=1, column=2)
-        self.Encrypted = StringVar()
+        self.Encrypted = tk.StringVar()
         k_b = tk.Label(r, text='Encrypted: ')
-        k_b.grid(row=2, column=0, sticky=E)
+        k_b.grid(row=2, column=0, sticky=tk.E)
         self.txtOutput = tk.Entry(r, text=self.Encrypted, state="readonly")
         self.txtOutput.grid(row=2, column=1)
         # self.txtOutput.focus_set()
