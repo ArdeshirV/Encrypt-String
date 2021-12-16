@@ -8,12 +8,12 @@ import tkinter.filedialog
 
 def main(args):
     err_code = 0
-    print_title()
     try:
         default_code = 82
         if len(args) >= 2:
             default_code = args[1]
         if len(args) <= 2:
+            print_title()
             encode_string(default_code)
         else:
             for s in args[2:]:
